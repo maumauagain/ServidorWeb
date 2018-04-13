@@ -64,6 +64,10 @@ public class HttpRequest implements Runnable {
 		//Pega o protocolo
 		String protocolo = dadosReq[2];
 		//Enquanto a linha nao for vazia
+                System.out.println("Protocolo: " + protocolo);
+                System.out.println("Caminho: " + caminhoArquivo);
+                
+                String host = br.readLine().substring(6);
 
 		//Se o caminho foi igual a / entao deve pegar o /index.html
 		if (caminhoArquivo.equals("/")) {
@@ -110,7 +114,7 @@ public class HttpRequest implements Runnable {
 		//Formata a data para o padrao
 		String dataFormatada = formatador.format(data) + " GMT";
 		//Cabecalho padrao da resposta HTTP
-		String header = status + "Location: http://localhost:8000/\r\n" + "Date: " + dataFormatada + "\r\n"
+		String header = status + "Location: http://"+ host + "\r\n" + "Date: " + dataFormatada + "\r\n"
 				+ "Server: MeuServidor/1.0\r\n" + "Content-Type: text/html\r\n" + "Content-Length: " + html.length()
 				+ "\r\n" + "Connection: close\r\n" + "\r\n";
 

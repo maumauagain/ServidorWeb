@@ -22,10 +22,12 @@ public class ServidorWeb {
 	
 	public static void main(String args[]) throws IOException {
 		//Inicia um endereco proprio para o servidor
-		InetAddress endereco = InetAddress.getByName("localhost");
+		InetAddress endereco = InetAddress.getByName("192.168.137.1");
 		//InetAddress endereco = InetAddress.getByName("10.20.146.250");
 		//Declara a porta 7777
 		int port = 7778;
+                
+                System.out.println(endereco);
 		
 		//Cria um socket para o servidor com base no endereco e port
 		ServerSocket servidor = new ServerSocket(port, 5, endereco);
